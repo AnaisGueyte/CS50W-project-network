@@ -16,25 +16,24 @@
 
     <h1>Profile: {{ user.username }} </h1>
     <div class="row">
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-2">
         <p>Followers</p>
         <p>#{{ totalFollowers }}</p>
       </div>
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-2">
         <p>Following</p>
         <p>#{{ totalFollowing }}</p>
       </div>
       <div class="col-sm-12">
         {% if not auth_user.username in user.username %}
           {% if is_following is False %}
-          <p><a href="/follow/{{ user.id }}">FOLLOW USER</a></p>
+          <p><a class="btn-cta" href="/follow/{{ user.id }}">FOLLOW USER</a></p>
         {% endif %}{% endif %}
       </div>
     </div>
 
 
-{% include "network/posts_block.html" %} 
-{% include "network/pagination.html" %} 
+{% include "network/posts_block.html" %}  
 </section>
 
 {% endblock %}

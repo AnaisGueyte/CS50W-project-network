@@ -5,17 +5,18 @@
 
 <section class="w-90">
 
+	<h1>All Posts</h1>
+
     {% if messages %}
     {% for message in messages %}
-    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}  role="alert">
-      <p>{{ message }}</p>
-    </div>
-  {% endfor %}
-  {% endif %}
+	    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}  role="alert">
+	      <p>{{ message }}</p>
+	    </div>
+	{% endfor %}
+	{% endif %}
 
 
-{% include "network/posts_block.html" %} 
-{% include "network/pagination.html" %} 
+	{% include "network/posts_block.html" %} 
 </section>
 
 {% endblock %}

@@ -43,6 +43,7 @@ $('.like-button').click(function(e){
                 the_heart.addClass("is-liked");
                 var likes = the_heart.closest(".tweet-footer").find(".likes-number").html();
                 new_likes = likes + 1;
+                the_heart.closest(".tweet-footer").find(".likes-number").empty();
                 the_heart.closest(".tweet-footer").find(".likes-number").html(new_likes);
             }
         });

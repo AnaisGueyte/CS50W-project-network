@@ -1,39 +1,55 @@
 
-{% for post in page_obj %}
+ <div class="all-tweets">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
 
-<div id="{{ post.post_id }}" class="new-post-container">
-  <div class="tweet-header">
-      <p><span class="lil-title"><a href="/user/{{ post.post_user_id }}">{{ post.post_username }}</a></span>  - <small>{{ post.post_date }}</small></span>
-  </div> 
-  <div class="tweet-body">
-    <p class="tweetComment">{{ post.post_comments }}</p>
-  </div>
-  <div class="tweet-footer">
-    {% if  user.is_authenticated %}
-      {% if post.post_username != user.username %}
-        <p> 
-          <a href="#" class="like-button{% for like in likes %}
-            {% if like.post_id == post.post_id %}
-              {% if like.username_id == auth_user.id %}
-                is-liked
-              {% endif %}
-            {% endif %}
-          {% endfor %}"><i class="far fa-heart"></i></a> <span class="likes-number">{{ post.post_likes }}</span>
-        </p>
-      {% endif %} 
-    {% else %}
-      <p> 
-        <i class="far fa-heart"></i> <span class="likes-number">{{ post.post_likes }}</span>
-      </p>
-    {% endif %}
+      {% for post in page_obj %}
+
+      <div id="{{ post.post_id }}" class="new-post-container">
+        <div class="tweet-header">
+            <p><span class="lil-title">
+                <a href="/user/{{ post.post_user_id }}">{{ post.post_username }}</a>
+              </span>
+              - <small>{{ post.post_date }}</small></p>
+        </div> 
+        <div class="tweet-body">
+          <p class="tweetComment">{{ post.post_comments }}</p>
+        </div>
+        <div class="tweet-footer">
+          {% if  user.is_authenticated %}
+            {% if post.post_username != user.username %}
+              <p> 
+                <a href="#" class="like-button{% for like in likes %}
+                  {% if like.post_id == post.post_id %}
+                    {% if like.username_id == auth_user.id %}
+                      is-liked
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}"><i class="far fa-heart"></i></a> <span class="likes-number">{% if post.post_likes %}{{ post.post_likes }} {% else %} 0 {% endif %}</span>
+              </p>
+            {% endif %} 
+          {% else %}
+            <p> 
+              <i class="far fa-heart"></i> <span class="likes-number">{% if post.post_likes %}{{ post.post_likes }} {% else %} 0 {% endif %}</span>
+            </p>
+          {% endif %}
 
 
-    {% if auth_user %}
-      {% if post.post_username == auth_user.username %}
-        <p class="editTweet"><small><a href="#">Edit</a></small></p>
-        <button class="saveNewTweet" style="display:none;">Save</button>
-      {% endif %} 
-    {% endif %}
-  </div>
+          {% if auth_user %}
+            {% if post.post_username == auth_user.username %}
+              <p class="editTweet"><small><a href="#">Edit</a></small></p>
+              <button class="saveNewTweet" style="display:none;">Save</button>
+            {% endif %} 
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+    {% include "network/pagination.html" %} 
+    </div>
+    <div class="col-sm-12 col-md-6">
+
+    </div>
+
 </div>
-{% endfor %}
+    </div>

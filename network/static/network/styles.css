@@ -32,7 +32,6 @@ p, a, li, label, textarea{
 	height: 94vh;
 }
 
-
 .login{
 	width: 25%;
     margin: auto;
@@ -45,8 +44,6 @@ p, a, li, label, textarea{
     border-radius: 20px;
 }
 
-
-
 label {
 display: block!important;
 }
@@ -54,6 +51,7 @@ display: block!important;
 textarea{
 	width: 100%;
 	height: 80px;
+	border-radius: 5px;
 }
 
 .is-liked{
@@ -61,13 +59,26 @@ textarea{
 }
 
 .new-tweet-box{
-	border: 1px solid grey;
 	padding: 1em; 
 	border-radius: 5px;
-	background-color: #fafafa;
-    margin: 2em auto;
+	background-color: #f7f7f7;
+    margin: 2em 0;
+    width: 50%;
 }
 
+
+.new-post-container{
+	border: 3px solid #f7f7f7;
+	padding: 1em 1em 0em 1em;
+	border-radius: 5px;
+	margin-bottom: 1em;	
+}
+
+
+.new-post-container .tweet-header .lil-title a{
+	color: #DA7194!important;
+	text-decoration: underline;
+}
 
 .btn-cta{
 	background-color:#DA7194;
@@ -100,6 +111,11 @@ textarea{
 		width: 75%;
 	}
 
+	.new-tweet-box{
+	    width: 95%;
+	}
+
+
 }
  
 
@@ -109,6 +125,12 @@ textarea{
 	.login{
 		width: 40%;
 	}
+
+	.new-tweet-box{
+	    width: 75%;
+	}
+
+
 
 } 
 
