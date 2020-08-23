@@ -42,9 +42,10 @@ $('.like-button').click(function(e){
             success: function (data) {
                 the_heart.addClass("is-liked");
                 var likes = the_heart.closest(".tweet-footer").find(".likes-number").html();
-                new_likes = likes + 1;
-                the_heart.closest(".tweet-footer").find(".likes-number").empty();
-                the_heart.closest(".tweet-footer").find(".likes-number").html(new_likes);
+                the_heart.closest(".tweet-footer").find(".likes-number").text('');
+                new_likes = parseInt(likes) + 1;
+                console.log(new_likes)
+                the_heart.closest(".tweet-footer").find(".likes-number").text(new_likes);
             }
         });
     }    
