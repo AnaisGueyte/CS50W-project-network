@@ -1,0 +1,21 @@
+{% extends "network/layout.html" %}
+
+
+{% block body %}
+
+<section class="w-90">
+
+    {% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}  role="alert">
+      <p>{{ message }}</p>
+    </div>
+  {% endfor %}
+  {% endif %}
+
+
+{% include "network/posts_block.html" %} 
+{% include "network/pagination.html" %} 
+</section>
+
+{% endblock %}

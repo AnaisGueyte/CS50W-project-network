@@ -1,0 +1,40 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<section class="w-90" >
+
+   {% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}  role="alert">
+      <p>{{ message }}</p>
+    </div>
+  {% endfor %}
+  {% endif %}
+
+  <div class="posts">
+
+    <h1>Profile: {{ user.username }} </h1>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <p>Followers</p>
+        <p>#{{ totalFollowers }}</p>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <p>Following</p>
+        <p>#{{ totalFollowing }}</p>
+      </div>
+      <div class="col-sm-12">
+        {% if not auth_user.username in user.username %}
+          {% if is_following is False %}
+          <p><a href="/follow/{{ user.id }}">FOLLOW USER</a></p>
+        {% endif %}{% endif %}
+      </div>
+    </div>
+
+
+{% include "network/posts_block.html" %} 
+{% include "network/pagination.html" %} 
+</section>
+
+{% endblock %}

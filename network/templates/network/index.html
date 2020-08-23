@@ -1,0 +1,35 @@
+{% extends "network/layout.html" %}
+
+
+{% block body %}
+
+<section class="w-90">
+  {% if messages %}
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}  role="alert">
+      <p>{{ message }}</p>
+    </div>
+  {% endfor %}
+  {% endif %}
+
+  <h1>All Posts</h1>
+
+  <div class="new-post-container">
+  	
+  	<h2> New Post </h2>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+      {% csrf_token {%}
+      {{ form.as_p }}
+    	
+      <input class="btn-cta" type="submit" value="Submit">
+    </form>
+  </div>
+
+
+{% include "network/posts_block.html" %} 
+{% include "network/pagination.html" %} 
+
+</section>
+
+{% endblock %}
