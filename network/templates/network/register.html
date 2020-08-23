@@ -2,33 +2,36 @@
 
 {% block body %}
 
-<div class="login w-90">
+<div class="homepage" style="background-image: url(static/network/background-3.jpg);">
 
-    <h2>Register</h2>
+    <div class="login">
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
+        <h2>Register</h2>
 
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
-        </div>
-        <input class="btn btn-primary" type="submit" value="Register">
-    </form>
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
 
-    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            </div>
+            <input class="btn-cta" type="submit" value="Register">
+        </form>
 
+        <p class="mt-3"><small>Already have an account? <a href="{% url 'login' %}">Log In here.</a></small></p>
+
+    </div>
 </div>
 
 {% endblock %}

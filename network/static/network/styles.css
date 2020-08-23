@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6{
 	font-family: 'Alata', sans-serif;
+	color: #6C6C91;
 }
 
 p, a, li, label, textarea{
@@ -15,7 +16,36 @@ p, a, li, label, textarea{
 
 .navbar{
 	margin-bottom: 2em;
+	background-color: #f7f7f7!important;
 }
+
+
+.homepage{
+    height: 94vh;
+    margin-top: -2em;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay{
+	background: rgba(255, 255, 255, 0.25);
+	height: 94vh;
+}
+
+
+.login{
+	width: 25%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2em;
+    border-radius: 20px;
+}
+
+
 
 label {
 display: block!important;
@@ -30,7 +60,7 @@ textarea{
 	color: red;
 }
 
-.new-post-container{
+.new-tweet-box{
 	border: 1px solid grey;
 	padding: 1em; 
 	border-radius: 5px;
@@ -40,23 +70,21 @@ textarea{
 
 
 .btn-cta{
-	background:linear-gradient(to bottom, #3ead5b 5%, #3ead5b 100%);
-	background-color:#3ead5b;
+	background-color:#DA7194;
 	border-radius:28px;
-	border:1px solid #18ab29;
+	border:1px solid #DA7194;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
-	padding:16px 31px;
+	padding: 10px 25px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #267039;
 }
 
 .btn-cta:hover {
-	background:linear-gradient(to bottom, #3ead5b 5%, #3ead5b 100%);
-	background-color:#3ead5b;
+	background-color:#DA7194;
 }
 
 .btn-cta:active {
@@ -64,5 +92,23 @@ textarea{
 	top:1px;
 }
 
-    
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px){
+
+	.login{
+		width: 75%;
+	}
+
+}
+ 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (min-width: 600px) and (max-width: 992px){
+
+	.login{
+		width: 40%;
+	}
+
+} 
 
